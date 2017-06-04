@@ -12,12 +12,11 @@ def check():
     last_name = request.form['last_name']
     test_dict = {'first_name': first_name, 'last_name': last_name}
     json_data = json.dumps(test_dict)
-    print(json_data)
+    #note that the URL is expecting the variable this time
     return redirect(url_for('hello',data1=json_data), code=303)
 
 @app.route('/hello/<data1>', methods=['GET'])
 def hello(data1):
-    # tmp = request.args['data']
     data = json.loads(data1)
     first_name = data['first_name']
     last_name = data['last_name']
