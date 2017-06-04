@@ -12,7 +12,7 @@ def check():
     test_dict = {'first_name': first_name, 'last_name': last_name}
     json_data = json.dumps(test_dict)
     #note that the url route for /hello/ is NOT expecting the variable 'data'
-    #something in redirect automatically generates the query string from json.
+    #url_for automatically appends unknown parameters to the URL as a query string.
     return redirect(url_for('hello',data=json_data), code=303)
 
 
